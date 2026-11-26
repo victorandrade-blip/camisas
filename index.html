@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Camisas de time a pronta entrega e por encomenda. Pedido direto pelo WhatsApp.">
+<title>Victor Silva | Camisas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: arquibancada entre amigos — direto, animado, sem enrolação
+   IDEA: o vestiário — camisas penduradas no varal, cada peça com o número nas costas
+   PICTURE: varal com três camisas desenhadas (listrada, lisa, retrô) sob luz de estádio
+   COLOUR and TYPE: preto dominante, vermelho #d7192d de apoio, branco de destaque; Barlow Condensed 800 + Barlow
+   LAYOUT: topo preto → capa com varal → abas e filtros → grade de cards → como comprar → rodapé */
+:root{color-scheme:light dark;
+  --red:#d7192d;--red-d:#a50f1f;--blk:#0b0b0c;
+  --bg:light-dark(#f4f1ee,#111112);--card:light-dark(#ffffff,#1b1b1d);
+  --ink:light-dark(#141414,#f2f0ee);--mute:light-dark(#5d5853,#a9a39d);
+  --line:light-dark(#e3ddd7,#2c2c2f);--chip:light-dark(#ece7e2,#242427)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Barlow,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,.brand,.price,.num{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;line-height:1.05;margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+
+/* topo */
+.top{position:sticky;top:0;z-index:5;background:var(--blk);color:#fff;border-bottom:4px solid var(--red)}
+.top .wrap{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);flex-wrap:wrap}
+.brand{font-size:30px;text-decoration:none;letter-spacing:.5px}
+.brand b{color:var(--red)}
+.top nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.top nav a{text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600}
+.top nav a:hover{background:#ffffff14}
+.top nav a.zap{background:var(--red)}
+.top nav a.zap:hover{background:var(--red-d)}
+
+/* capa */
+.hero{color:#fff;min-height:clamp(460px,72vh,680px);display:flex;align-items:center;
+  background:linear-gradient(90deg,rgba(8,6,6,.92) 0%,rgba(8,6,6,.7) 45%,rgba(8,6,6,.05) 100%),linear-gradient(0deg,rgba(8,6,6,.85),transparent 35%),url("img/fundo-torcida.webp") center 38%/cover no-repeat #120607}
+.hero .wrap{width:100%}
+.hero h1{max-width:13ch}
+.hero h1{font-size:clamp(40px,6vw,64px);text-wrap:balance}
+.hero p{color:#d9d3cd;font-size:17px;max-width:46ch;margin:16px 0 24px}
+.cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--red);color:#fff;text-decoration:none;font-weight:600;font-size:17px;border:0;cursor:pointer}
+.cta:hover{background:var(--red-d)}
+.cta:focus-visible,button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #ffb3bc;outline-offset:2px}
+.rail{width:100%;height:auto;display:block}
+.facts{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:#bdb6af;font-size:15px}
+.facts strong{display:block;color:#fff;font:800 26px "Barlow Condensed",sans-serif}
+
+/* catálogo */
+.head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.head h2{font-size:clamp(32px,4vw,44px)}
+.sample{color:var(--mute);font-size:14px;margin:6px 0 0}
+.tabs{display:flex;gap:6px;background:var(--chip);padding:5px;border-radius:999px;flex-wrap:wrap}
+.tabs button{min-height:44px;border:0;background:none;color:var(--ink);padding:0 18px;border-radius:999px;font:600 16px Barlow,sans-serif;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--blk);color:#fff}
+:root[data-theme=dark] .tabs button[aria-pressed=true]{background:var(--red)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tabs button[aria-pressed=true]{background:var(--red)}}
+.tabs small{opacity:.7;margin-left:4px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.filters input{flex:1 1 220px;min-height:46px;font:16px Barlow,sans-serif;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.sizes{display:flex;gap:6px;flex-wrap:wrap}
+.sizes button{min-width:48px;min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 16px Barlow,sans-serif;cursor:pointer}
+.sizes button[aria-pressed=true]{border-color:var(--red);background:var(--red);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:20px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card.sold{opacity:.55;filter:grayscale(.85)}
+.media{position:relative;background:linear-gradient(160deg,#2a2a2d,#0e0e10)}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:40px 18px 26px;overflow:hidden}
+.slide svg,.slide img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
+.slide.foto{padding:0;aspect-ratio:4/5}.slide.foto img{width:100%;height:100%;max-width:none;object-fit:cover}
+.price.ask{font-size:20px;color:var(--mute)}
+.pick{display:flex;gap:6px;flex-wrap:wrap}
+.pick button{min-width:48px;min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px Barlow,sans-serif;cursor:pointer}
+.pick button[aria-pressed=true]{background:var(--blk);color:#fff;border-color:var(--blk)}
+.arrow{position:absolute;top:50%;translate:0 -50%;width:40px;height:40px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:22px;cursor:pointer}
+.arrow.prev{left:8px}.arrow.next{right:8px}
+.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#ffffff66}
+.dots i.on{background:#fff}
+.tag{position:absolute;top:12px;left:12px;padding:5px 10px;border-radius:999px;font-size:13px;font-weight:600;background:#fff;color:#111}
+.tag.enc{background:var(--blk);color:#fff;border:1px solid #fff4}
+.tag.vend{background:var(--red);color:#fff}
+.info{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.info h3{font-size:24px}
+.meta{display:flex;gap:6px;flex-wrap:wrap}
+.meta span{font-size:13px;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--mute);font-weight:500}
+.meta span.sz{background:var(--blk);color:#fff}
+.desc{color:var(--mute);font-size:15px;margin:0}
+.buy{margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-top:8px}
+.buy .zapbtn{justify-content:center;width:100%}
+.prices{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:14px;background:var(--chip)}
+.prices.promo{background:linear-gradient(135deg,#fff1f2,#ffe1e5);border:1px solid #f5a3ad;color:#141414}
+.promo-lbl{align-self:start;font:800 14px "Barlow Condensed",sans-serif;letter-spacing:.5px;text-transform:uppercase;background:var(--red);color:#fff;padding:3px 10px;border-radius:999px}
+.de{color:#8a8580;font-size:15px}
+.pv{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.price{font-size:30px;white-space:nowrap}
+.promo .price{color:var(--red)}
+.how-pay{font-size:13px;line-height:1.25;color:var(--mute)}
+.promo .how-pay,.promo .pc{color:#4a4440}
+.pc{font-size:14px;color:var(--mute)}
+.pc strong{color:inherit;font-weight:700}
+.tag.promo-tag{left:auto;right:12px;background:var(--red);color:#fff}
+.zapbtn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:12px;background:#1faa53;color:#fff;font-weight:600;text-decoration:none;white-space:nowrap}
+.zapbtn:hover{background:#178a43}
+.zapbtn[aria-disabled=true]{background:var(--chip);color:var(--mute);pointer-events:none}
+.empty{grid-column:1/-1;text-align:center;padding:48px 16px;color:var(--mute);border:2px dashed var(--line);border-radius:18px}
+.empty button{margin-top:12px}
+
+/* como comprar */
+.how{color:#fff;background:linear-gradient(180deg,rgba(8,6,6,.95) 0%,rgba(8,6,6,.78) 50%,rgba(8,6,6,.9) 100%),url("img/fundo-maracana.webp") center 72%/cover no-repeat #0b0b0c}
+.how .step{background:rgba(0,0,0,.35);padding:16px;border-radius:0 0 12px 12px;backdrop-filter:blur(2px)}
+.how h2{font-size:clamp(32px,4vw,44px);margin-bottom:24px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{border-top:3px solid var(--red);padding-top:16px}
+.step h3{font-size:24px;margin-bottom:6px}
+.step p{margin:0;color:#c9c2bb}
+.step svg{width:34px;height:34px;margin-bottom:10px}
+footer{background:#000;color:#8f8983;text-align:center;padding:26px 16px;font-size:14px}
+footer strong{color:#fff;font:800 22px "Barlow Condensed",sans-serif;display:block}
+
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+@media(max-width:600px){.hero{background-position:center 30%}}
+@media(max-width:600px){.top nav a:not(.zap){display:none}.head{align-items:start}.tabs{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:14px}.tabs button{padding:0 4px;font-size:14px;line-height:1.15;border-radius:10px}.tabs small{display:block;margin:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.swing{animation:none!important}}
+.swing{transform-origin:top center;animation:swing 4s ease-in-out infinite}
+.swing:nth-of-type(2){animation-delay:-1.3s}.swing:nth-of-type(3){animation-delay:-2.6s}
+@keyframes swing{50%{transform:rotate(1.6deg)}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" id="brand">Victor <b>Silva</b></a>
+    <nav>
+      <a href="#camisas">Camisas</a>
+      <a href="#como-comprar">Como comprar</a>
+      <a class="zap" id="zapTop" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero band" id="inicio">
+    <div class="wrap">
+      <div>
+        <h1>Vista o manto. A arquibancada vem junto.</h1>
+        <p>Camisas de time a pronta entrega e por encomenda. Escolha o modelo e o tamanho, chame no WhatsApp e a sua peça é separada.</p>
+        <a class="cta" href="#camisas">Ver as camisas</a>
+        <div class="facts">
+          <div><strong id="fTotal">0</strong>modelos</div>
+          <div><strong id="fPronta">0</strong>pronta entrega</div>
+          <div><strong id="fEnc">0</strong>por encomenda</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="camisas">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2>No varal agora</h2>
+        </div>
+        <div class="tabs" role="group" aria-label="Disponibilidade" id="tabs">
+          <button data-tab="todas" aria-pressed="true">Todas<small id="cTodas"></small></button>
+          <button data-tab="pronta" aria-pressed="false">Pronta entrega<small id="cPronta"></small></button>
+          <button data-tab="encomenda" aria-pressed="false">Por encomenda<small id="cEnc"></small></button>
+        </div>
+      </div>
+      <div class="filters">
+        <input id="busca" type="search" placeholder="Buscar time ou modelo (ex.: Brasil, treino)" aria-label="Buscar camisa">
+        <div class="sizes" role="group" aria-label="Tamanho" id="sizes"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="how band" id="como-comprar">
+    <div class="wrap">
+      <h2>Como comprar</h2>
+      <div class="steps">
+        <div class="step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <h3>Escolha a camisa</h3>
+          <p>Veja pronta entrega ou encomenda, filtre por tamanho ou procure pelo seu time.</p>
+        </div>
+        <div class="step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><path d="M4 20l1.5-4A8 8 0 1 1 8 18.5z"/></svg>
+          <h3>Chame no WhatsApp</h3>
+          <p>O botão abre a conversa com o nome da camisa, o tamanho e o preço já escritos.</p>
+        </div>
+        <div class="step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><path d="M20 7 9 18l-5-5"/></svg>
+          <h3>Combine e receba</h3>
+          <p>Pagamento e entrega são combinados direto na conversa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong id="brandFoot">Victor Silva</strong>
+  Camisas de time • Atendimento pelo WhatsApp
+</footer>
+
+<script>
+{
+// =====================================================================
+// CONFIGURAÇÃO — edite aqui
+// =====================================================================
+const LOJA = "Victor Silva";
+const WHATSAPP = "5583987866117"; // DDI + DDD + número, só números
+
+// tipo: "pronta" ou "encomenda" • vendida: true esconde o botão
+// fotos: ["img/arquivo-frente.jpg","img/arquivo-costas.jpg"] — se vazio, usa o desenho
+// PREÇO PADRÃO de todas as camisas (para mudar uma só, coloque vista/cartao/de nela)
+const VISTA = 170;     // Pix ou dinheiro
+const CARTAO = 180;    // cartão
+const PARCELAS = 3;    // em até 3x
+// promocao: {de: 170, vista: 120, cartao: 130}
+const CAMISAS = [
+  // ---------------- PRONTA ENTREGA ----------------
+  {time:"Flamengo",modelo:"Camisa I",ano:"",tamanhos:["G","GG","2XG","3XG"],tipo:"pronta",estado:"Nova, com etiqueta",
+   desc:"Camisa I rubro-negra, gola polo, escudo e marca bordados.",
+   fotos:["img/flamengo-01-01.webp","img/flamengo-01-02.webp","img/flamengo-01-03.webp","img/flamengo-01-04.webp"]},
+  {time:"Flamengo",modelo:"Treino Bege",ano:"2026/2027",tamanhos:["2XG"],tipo:"pronta",
+   desc:"Camisa de treino bege com mangas marrons e detalhes dourados.",
+   fotos:["img/treino-bege-1.webp","img/treino-bege-2.webp"]},
+  {time:"Flamengo",modelo:"Treino Marrom",ano:"2026/2027",tamanhos:["2XG"],tipo:"pronta",
+   desc:"Camisa de treino marrom com mangas bege e detalhes dourados.",
+   fotos:["img/treino-marrom-1.webp","img/treino-marrom-2.webp"]},
+  {time:"Brasil",modelo:"Camisa I",ano:"2026/2027",tamanhos:["G","GG"],tipo:"pronta",promocao:{de:170,vista:120,cartao:130},
+   desc:"Camisa amarela da Seleção, detalhes em verde.",
+   fotos:["img/brasil-i-1.webp","img/brasil-i-2.webp"]},
+  {time:"Brasil",modelo:"Camisa II",ano:"2026/2027",tamanhos:["GG"],tipo:"pronta",promocao:{de:170,vista:120,cartao:130},
+   desc:"Camisa azul da Seleção com estampa em listras.",
+   fotos:["img/brasil-ii-1.webp","img/brasil-ii-2.webp"]},
+  // ---------------- POR ENCOMENDA ----------------
+  {time:"Flamengo",modelo:"Camisa III",ano:"2026/2027",tamanhos:["P","M","G","GG","2XG","3XG"],tipo:"encomenda",
+   desc:"Camisa III vermelha com estampa tonal.",
+   fotos:["img/flamengo-iii-1.webp","img/flamengo-iii-2.webp"]},
+  {time:"Flamengo",modelo:"Originals 2 Trefoil",ano:"26/27",tamanhos:["P","M","G","GG","2XG","3XG"],tipo:"encomenda",
+   desc:"Preta com faixa vermelha no peito e três listras nos ombros.",
+   fotos:["img/originals-preta-1.webp","img/originals-preta-2.webp"]},
+];
+// =====================================================================
+
+const $ = s => document.querySelector(s);
+CAMISAS.forEach(c => { c.tamanhos = c.tamanhos || [c.tamanho]; });
+const brl = v => v == null ? "" : v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const nome = c => [c.time, c.ano, c.modelo].filter(Boolean).join(" ");
+const zap = txt => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
+let uid = 0;
+
+const SHIRT = "M60 22 L86 12 Q100 22 114 12 L140 22 L186 52 L168 92 L148 82 L148 206 L52 206 L52 82 L32 92 L14 52 Z";
+function camisaSVG(d, costas, numero){
+  const id = "c" + (uid++);
+  let faixas = "";
+  if (d.padrao === "h") for (let y = 0; y < 220; y += 28) faixas += `<rect x="0" y="${y}" width="200" height="14" fill="${d.listra}"/>`;
+  if (d.padrao === "v") for (let x = 4; x < 200; x += 24) faixas += `<rect x="${x}" y="0" width="12" height="220" fill="${d.listra}"/>`;
+  const gola = costas ? "M86 12 Q100 18 114 12" : "M86 12 Q100 32 114 12";
+  const num = costas ? `<text x="100" y="150" text-anchor="middle" font-family="Barlow Condensed,Impact,sans-serif" font-weight="800" font-size="78" fill="${d.detalhe}" stroke="${d.base}" stroke-width="2" paint-order="stroke">${numero}</text>` : "";
+  return `<svg viewBox="0 0 200 220" role="img" aria-label="Desenho da camisa ${costas ? "de costas" : "de frente"}">
+    <defs><clipPath id="${id}"><path d="${SHIRT}"/></clipPath>
+    <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient></defs>
+    <ellipse cx="100" cy="212" rx="62" ry="6" fill="#000" opacity=".35"/>
+    <g clip-path="url(#${id})"><rect width="200" height="220" fill="${d.base}"/>${faixas}
+      <path d="M14 52 L32 92 L52 82 L52 70 Z M186 52 L168 92 L148 82 L148 70 Z" fill="${d.detalhe}" opacity=".9"/>
+      ${num}<rect width="200" height="220" fill="url(#${id}g)"/></g>
+    <path d="${SHIRT}" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
+    <path d="${gola}" fill="none" stroke="${d.detalhe}" stroke-width="6" stroke-linecap="round"/>
+  </svg>`;
+}
+
+// textos fixos
+$("#brand").innerHTML = LOJA.replace(/(\S+)$/, " <b>$1</b>");
+$("#brandFoot").textContent = LOJA;
+document.title = `${LOJA} | Camisas`;
+$("#zapTop").href = zap(`Olá! Vim pelo seu site e queria ver as camisas disponíveis.`);
+
+const disp = CAMISAS.filter(c => !c.vendida);
+$("#fTotal").textContent = disp.length;
+$("#fPronta").textContent = disp.filter(c => c.tipo === "pronta").length;
+$("#fEnc").textContent = disp.filter(c => c.tipo === "encomenda").length;
+$("#cTodas").textContent = disp.length;
+$("#cPronta").textContent = disp.filter(c => c.tipo === "pronta").length;
+$("#cEnc").textContent = disp.filter(c => c.tipo === "encomenda").length;
+
+const TAM = ["Todos", ...["PP","P","M","G","GG","XG","2XG","3XG"].filter(t => CAMISAS.some(c => c.tamanhos.includes(t)))];
+$("#sizes").innerHTML = TAM.map((t, i) => `<button data-size="${t}" aria-pressed="${i === 0}">${t}</button>`).join("");
+
+let aba = "todas", tam = "Todos", busca = "";
+
+const precos = c => c.promocao ? {...c.promocao, promo: true} : {vista: c.vista ?? VISTA, cartao: c.cartao ?? CARTAO, de: c.de, promo: false};
+const zapMsg = (c, t) => { const p = precos(c); return zap(`Olá! Tenho interesse na camisa ${nome(c)}${p.promo ? " (promoção)" : ""}, tamanho ${t} (${c.tipo === "pronta" ? "pronta entrega" : "por encomenda"}): ${brl(p.vista)} à vista ou ${brl(p.cartao)} no cartão em até ${PARCELAS}x. Ainda está disponível?`); };
+function precoHTML(c){
+  const p = precos(c);
+  return `<div class="prices${p.promo ? " promo" : ""}">
+    ${p.promo ? `<span class="promo-lbl">Promoção</span>` : ""}
+    ${p.de ? `<s class="de">De ${brl(p.de)}</s>` : ""}
+    <div class="pv"><span class="price">${p.de ? "por " : ""}${brl(p.vista)}</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
+    <div class="pc">ou <strong>${brl(p.cartao)}</strong> no cartão em até ${PARCELAS}x de ${brl(p.cartao / PARCELAS)}</div>
+  </div>`;
+}
+function card(c){
+  const slides = c.fotos && c.fotos.length
+    ? c.fotos.map(f => `<div class="slide foto"><img src="${f}" alt="${nome(c)}" loading="lazy"></div>`)
+    : [camisaSVG(c.desenho, 0), camisaSVG(c.desenho, 1, c.numero)].map(s => `<div class="slide">${s}</div>`);
+  const tag = c.vendida ? `<span class="tag vend">Vendida</span>`
+    : c.tipo === "pronta" ? `<span class="tag">Pronta entrega</span>` : `<span class="tag enc">Por encomenda</span>`;
+  const promoTag = c.promocao && !c.vendida ? `<span class="tag promo-tag">Promoção</span>` : "";
+  const tz = c.tamanhos.includes(tam) ? tam : c.tamanhos[0];
+  const msg = zapMsg(c, tz);
+  const escolha = c.tamanhos.length > 1
+    ? `<div class="pick" role="group" aria-label="Escolha o tamanho">${c.tamanhos.map(t => `<button data-t="${t}" aria-pressed="${t === tz}">${t}</button>`).join("")}</div>` : "";
+  const nav = slides.length > 1
+    ? `<button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots">${slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div>`
+    : "";
+  return `<article class="card${c.vendida ? " sold" : ""}" data-i="${CAMISAS.indexOf(c)}">
+    <div class="media"><div class="slides">${slides.join("")}</div>${tag}${promoTag}${nav}</div>
+    <div class="info">
+      <h3>${c.time} ${c.modelo}</h3>
+      <div class="meta">${c.tamanhos.length > 1 ? "" : `<span class="sz">Tam. ${c.tamanhos[0]}</span>`}${c.ano ? `<span>${c.ano}</span>` : ""}${c.estado ? `<span>${c.estado}</span>` : ""}</div>${escolha}
+      <p class="desc">${c.desc}</p>
+      <div class="buy">${precoHTML(c)}
+        <a class="zapbtn" href="${c.vendida ? "#" : msg}" target="_blank" rel="noopener" ${c.vendida ? 'aria-disabled="true"' : ""}>${c.vendida ? "Já foi" : "Quero essa"}</a></div>
+    </div></article>`;
+}
+
+function render(){
+  const q = busca.trim().toLowerCase();
+  const lista = CAMISAS
+    .filter(c => aba === "todas" || c.tipo === aba)
+    .filter(c => tam === "Todos" || c.tamanhos.includes(tam))
+    .filter(c => !q || nome(c).toLowerCase().includes(q))
+    .sort((a, b) => (a.vendida ? 1 : 0) - (b.vendida ? 1 : 0));
+  $("#grid").innerHTML = lista.length ? lista.map(card).join("")
+    : `<div class="empty">Nenhuma camisa com esse filtro agora.<br><button class="cta" id="limpar">Ver todas</button></div>`;
+}
+
+$("#tabs").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  aba = b.dataset.tab;
+  document.querySelectorAll("#tabs button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  render();
+});
+$("#sizes").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  tam = b.dataset.size;
+  document.querySelectorAll("#sizes button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  render();
+});
+$("#busca").addEventListener("input", e => { busca = e.target.value; render(); });
+$("#grid").addEventListener("click", e => {
+  if (e.target.id === "limpar") {
+    aba = "todas"; tam = "Todos"; busca = ""; $("#busca").value = "";
+    document.querySelectorAll("#tabs button,#sizes button").forEach(x => x.setAttribute("aria-pressed", x.dataset.tab === "todas" || x.dataset.size === "Todos"));
+    render(); return;
+  }
+  const pk = e.target.closest(".pick button");
+  if (pk) {
+    const cardEl = pk.closest(".card"), c = CAMISAS[cardEl.dataset.i];
+    cardEl.querySelectorAll(".pick button").forEach(x => x.setAttribute("aria-pressed", x === pk));
+    cardEl.querySelector(".zapbtn").href = zapMsg(c, pk.dataset.t);
+    return;
+  }
+  const a = e.target.closest(".arrow"); if (!a) return;
+  const s = a.closest(".media").querySelector(".slides");
+  s.scrollBy({left: s.clientWidth * Number(a.dataset.dir), behavior: "smooth"});
+});
+$("#grid").addEventListener("scroll", e => {
+  const s = e.target; if (!s.classList || !s.classList.contains("slides")) return;
+  const i = Math.round(s.scrollLeft / s.clientWidth);
+  s.parentElement.querySelectorAll(".dots i").forEach((d, k) => d.classList.toggle("on", k === i));
+}, true);
+
+render();
+}
+</script>
+</body>
+</html>
