@@ -151,17 +151,92 @@ footer{padding-bottom:96px}
 .swing{transform-origin:top center;animation:swing 4s ease-in-out infinite}
 .swing:nth-of-type(2){animation-delay:-1.3s}.swing:nth-of-type(3){animation-delay:-2.6s}
 @keyframes swing{50%{transform:rotate(1.6deg)}}
+
+/* carrinho */
+.cartbtn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;background:#ffffff14;color:#fff;border:0;font:600 16px Barlow,sans-serif;cursor:pointer;min-height:44px}
+.cartbtn:hover{background:#ffffff26}
+.cartbtn svg{width:22px;height:22px}
+.badge{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--red);color:#fff;font-size:13px;font-weight:700;display:inline-grid;place-items:center;line-height:1}
+.badge[hidden]{display:none}
+.cupom-strip{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0 0;font-size:15px;color:var(--ink)}
+.cupom-strip b{font:800 17px "Barlow Condensed",sans-serif;letter-spacing:.6px;background:var(--red);color:#fff;padding:3px 10px;border-radius:6px;border:2px dashed #ffffff88}
+.pick button:disabled{opacity:.4;text-decoration:line-through;cursor:default}
+.addrow{display:flex;gap:8px;flex-wrap:wrap}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;flex:none}
+.qty button{width:40px;min-height:46px;border:0;background:none;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.qty button:disabled{opacity:.3;cursor:default}
+.qty output{min-width:26px;text-align:center;font-weight:700}
+.addbtn{flex:1 1 130px;min-height:46px;border-radius:12px;border:0;background:var(--red);color:#fff;font:600 16px/1.15 Barlow,sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 12px}
+.addbtn svg{width:20px;height:20px;flex:none}
+.addbtn:hover{background:var(--red-d)}
+.addbtn:disabled{background:var(--chip);color:var(--mute);cursor:default}
+.stock{font-size:13px;color:var(--mute);margin:-4px 0 0}
+.zaplink{font-size:14px;font-weight:600;text-align:center;color:light-dark(#13803d,#4bd483)}
+
+.drawer{margin:0 0 0 auto;width:min(440px,100%);max-width:100%;height:100dvh;max-height:100dvh;border:0;padding:0;background:var(--bg);color:var(--ink)}
+.drawer[open]{display:flex;flex-direction:column}
+.drawer::backdrop{background:rgba(0,0,0,.6)}
+body:has(.drawer[open]){overflow:hidden}
+.dh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;background:var(--blk);color:#fff;border-bottom:4px solid var(--red)}
+.dh h2{font-size:30px}
+.x{width:44px;height:44px;border-radius:50%;border:0;background:#ffffff1a;color:#fff;font-size:26px;line-height:1;cursor:pointer}
+.db{flex:1;overflow:auto;padding:16px 18px;display:flex;flex-direction:column;gap:18px}
+.df{padding:14px 18px max(14px,env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;gap:10px}
+.df[hidden],.db [hidden]{display:none}
+.cupom{padding:12px 14px;border-radius:14px;background:var(--chip);font-size:15px;line-height:1.35}
+.cupom.ok{background:linear-gradient(135deg,#fff1f2,#ffe1e5);color:#141414;border:1px solid #f5a3ad}
+.cupom.ok strong{color:var(--red)}
+.bar{height:8px;border-radius:99px;background:light-dark(#d9d2cb,#3a3a3e);margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red);transition:width .3s}
+.cupom.ok .bar{background:#f5c4ca}
+.items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ci{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px}
+.ci img{width:60px;height:75px;object-fit:cover;border-radius:10px;background:#222;display:block}
+.ci b{display:block;font-weight:600;line-height:1.2}
+.ci small{display:block;color:var(--mute);font-size:13px;margin:2px 0}
+.ci .lp{font-weight:700;font-size:15px}
+.ci .side{display:flex;flex-direction:column;align-items:end;gap:4px}
+.ci .qty button{width:34px;min-height:36px;font-size:19px}
+.rm{border:0;background:none;color:var(--mute);font:500 13px Barlow,sans-serif;text-decoration:underline;cursor:pointer;padding:4px}
+.pay{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.pay legend,.blk-t{font:800 22px "Barlow Condensed",sans-serif;margin:0 0 8px;padding:0}
+.opt{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;font-weight:600}
+.opt:has(input:checked){border-color:var(--red);box-shadow:inset 0 0 0 1px var(--red)}
+.opt input{accent-color:var(--red);width:18px;height:18px;margin:0}
+.opt small{margin-left:auto;color:var(--mute);font-weight:500;font-size:13px;text-align:right}
+.field{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
+.field span{color:var(--mute);font-weight:400}
+.field select,.field input{min-height:46px;font:16px Barlow,sans-serif;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.sum{display:flex;flex-direction:column;gap:3px;font-size:15px}
+.sum div{display:flex;justify-content:space-between;gap:12px}
+.sum .off{color:var(--red);font-weight:600}
+.sum .tot{font:800 28px/1.1 "Barlow Condensed",sans-serif;margin-top:4px}
+.note{font-size:13px;color:var(--mute);margin:0;line-height:1.35}
+.df .zapbtn{justify-content:center;width:100%;min-height:52px;font-size:17px}
+.vazio{text-align:center;color:var(--mute);padding:36px 8px}
+.vazio .cta{margin-top:14px}
+.linkbtn{border:0;background:none;color:var(--mute);font:500 14px Barlow,sans-serif;text-decoration:underline;cursor:pointer;align-self:center;padding:6px}
+.toast{position:fixed;left:16px;right:96px;bottom:max(22px,env(safe-area-inset-bottom));z-index:30;max-width:440px;display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;border-radius:14px;background:var(--blk);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.4);border-left:4px solid var(--red);font-size:15px}
+.toast[hidden]{display:none}
+.toast span{flex:1}
+.toast button{flex:none;min-height:40px;padding:0 14px;border-radius:10px;border:0;background:var(--red);color:#fff;font:600 15px Barlow,sans-serif;cursor:pointer}
+@media(max-width:600px){.top .lbl{display:none}.top .wrap{flex-wrap:nowrap;gap:8px}.brand{font-size:24px;white-space:nowrap}.top nav{flex-wrap:nowrap;gap:6px}.top nav a.zap{padding:10px;font-size:14px;white-space:nowrap}.cartbtn{padding:8px 10px}}
+.slide.semfoto img{display:none}.slide.semfoto::after{content:"Foto em breve";color:#8f8983;font-weight:600}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio" id="brand">Victor  <b>Silva</b></a>
+    <a class="brand" href="#inicio" id="brand">Victor <b>Silva</b></a>
     <nav>
       <a href="#camisas">Camisas</a>
       <a href="#como-comprar">Como comprar</a>
-      <a class="zap" id="zapTop" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Vim%20pelo%20seu%20site%20e%20queria%20ver%20as%20camisas%20dispon%C3%ADveis." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="zap" id="zapTop" href="#" target="_blank" rel="noopener"><span class="lbl">Falar no </span>WhatsApp</a>
+      <button class="cartbtn" id="cartBtn" type="button" aria-label="Abrir carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H6"/></svg>
+        <span class="lbl">Carrinho</span><span class="badge" id="cartCount" hidden>0</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -171,7 +246,7 @@ footer{padding-bottom:96px}
     <div class="wrap">
       <div>
         <h1>Vista o manto. A arquibancada vem junto.</h1>
-        <p>Camisas de time a pronta entrega e por encomenda. Escolha o modelo e o tamanho, chame no WhatsApp e a sua peça é separada.</p>
+        <p>Camisas de time a pronta entrega e por encomenda. Monte o carrinho, escolha como pagar e finalize o pedido no WhatsApp.</p>
         <a class="cta" href="#camisas">Ver as camisas</a>
         <div class="facts">
           <div><strong id="fTotal">7</strong>modelos</div>
@@ -187,109 +262,19 @@ footer{padding-bottom:96px}
       <div class="head">
         <div>
           <h2>Disponíveis</h2>
+          <p class="cupom-strip" id="cupomStrip"></p>
         </div>
         <div class="tabs" role="group" aria-label="Disponibilidade" id="tabs">
-          <button data-tab="todas" aria-pressed="true">Todas<small id="cTodas">7</small></button>
-          <button data-tab="pronta" aria-pressed="false">Pronta entrega<small id="cPronta">5</small></button>
-          <button data-tab="encomenda" aria-pressed="false">Por encomenda<small id="cEnc">2</small></button>
+          <button data-tab="todas" aria-pressed="true">Todas<small id="cTodas"></small></button>
+          <button data-tab="pronta" aria-pressed="false">Pronta entrega<small id="cPronta"></small></button>
+          <button data-tab="encomenda" aria-pressed="false">Por encomenda<small id="cEnc"></small></button>
         </div>
       </div>
       <div class="filters">
         <input id="busca" type="search" placeholder="Buscar time ou modelo (ex.: Brasil, treino)" aria-label="Buscar camisa">
-        <div class="sizes" role="group" aria-label="Tamanho" id="sizes"><button data-size="Todos" aria-pressed="true">Todos</button><button data-size="P" aria-pressed="false">P</button><button data-size="M" aria-pressed="false">M</button><button data-size="G" aria-pressed="false">G</button><button data-size="GG" aria-pressed="false">GG</button><button data-size="2XG" aria-pressed="false">2XG</button><button data-size="3XG" aria-pressed="false">3XG</button></div>
+        <div class="sizes" role="group" aria-label="Tamanho" id="sizes"></div>
       </div>
-      <div class="grid" id="grid"><article class="card" data-i="0">
-    <div class="media"><div class="slides"><div class="slide foto"><img src="flamengo-01-01.webp" alt="Flamengo Camisa I" loading="lazy"></div><div class="slide foto"><img src="flamengo-01-02.webp" alt="Flamengo Camisa I" loading="lazy"></div><div class="slide foto"><img src="flamengo-01-03.webp" alt="Flamengo Camisa I" loading="lazy"></div><div class="slide foto"><img src="flamengo-01-04.webp" alt="Flamengo Camisa I" loading="lazy"></div></div><span class="tag">Pronta entrega</span><button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></div>
-    <div class="info">
-      <h3>Flamengo Camisa I</h3>
-      <div class="meta"><span>Nova, com etiqueta</span></div><div class="pick" role="group" aria-label="Escolha o tamanho"><button data-t="G" aria-pressed="true">G</button><button data-t="GG" aria-pressed="false">GG</button><button data-t="2XG" aria-pressed="false">2XG</button><button data-t="3XG" aria-pressed="false">3XG</button></div>
-      <p class="desc">Camisa I rubro-negra, gola polo, escudo e marca bordados.</p>
-      <div class="buy"><div class="prices">
-    
-    
-    <div class="pv"><span class="price">R$&nbsp;170,00</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
-    <div class="pc">ou <strong>R$&nbsp;180,00</strong> no cartão em até 3x de R$&nbsp;60,00</div>
-  </div>
-        <a class="zapbtn" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Tenho%20interesse%20na%20camisa%20Flamengo%20Camisa%20I%2C%20tamanho%20G%20(pronta%20entrega)%3A%20R%24%C2%A0170%2C00%20%C3%A0%20vista%20ou%20R%24%C2%A0180%2C00%20no%20cart%C3%A3o%20em%20at%C3%A9%203x.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener">Quero essa</a></div>
-    </div></article><article class="card" data-i="1">
-    <div class="media"><div class="slides"><div class="slide foto"><img src="treino-bege-1.webp" alt="Flamengo 2026/2027 Treino Bege" loading="lazy"></div><div class="slide foto"><img src="treino-bege-2.webp" alt="Flamengo 2026/2027 Treino Bege" loading="lazy"></div></div><span class="tag">Pronta entrega</span><button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots"><i class="on"></i><i class=""></i></div></div>
-    <div class="info">
-      <h3>Flamengo Treino Bege</h3>
-      <div class="meta"><span class="sz">Tam. 2XG</span><span>2026/2027</span></div>
-      <p class="desc">Camisa de treino bege com mangas marrons e detalhes dourados.</p>
-      <div class="buy"><div class="prices">
-    
-    
-    <div class="pv"><span class="price">R$&nbsp;170,00</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
-    <div class="pc">ou <strong>R$&nbsp;180,00</strong> no cartão em até 3x de R$&nbsp;60,00</div>
-  </div>
-        <a class="zapbtn" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Tenho%20interesse%20na%20camisa%20Flamengo%202026%2F2027%20Treino%20Bege%2C%20tamanho%202XG%20(pronta%20entrega)%3A%20R%24%C2%A0170%2C00%20%C3%A0%20vista%20ou%20R%24%C2%A0180%2C00%20no%20cart%C3%A3o%20em%20at%C3%A9%203x.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener">Quero essa</a></div>
-    </div></article><article class="card" data-i="2">
-    <div class="media"><div class="slides"><div class="slide foto"><img src="treino-marrom-1.webp" alt="Flamengo 2026/2027 Treino Marrom" loading="lazy"></div><div class="slide foto"><img src="treino-marrom-2.webp" alt="Flamengo 2026/2027 Treino Marrom" loading="lazy"></div></div><span class="tag">Pronta entrega</span><button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots"><i class="on"></i><i class=""></i></div></div>
-    <div class="info">
-      <h3>Flamengo Treino Marrom</h3>
-      <div class="meta"><span class="sz">Tam. 2XG</span><span>2026/2027</span></div>
-      <p class="desc">Camisa de treino marrom com mangas bege e detalhes dourados.</p>
-      <div class="buy"><div class="prices">
-    
-    
-    <div class="pv"><span class="price">R$&nbsp;170,00</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
-    <div class="pc">ou <strong>R$&nbsp;180,00</strong> no cartão em até 3x de R$&nbsp;60,00</div>
-  </div>
-        <a class="zapbtn" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Tenho%20interesse%20na%20camisa%20Flamengo%202026%2F2027%20Treino%20Marrom%2C%20tamanho%202XG%20(pronta%20entrega)%3A%20R%24%C2%A0170%2C00%20%C3%A0%20vista%20ou%20R%24%C2%A0180%2C00%20no%20cart%C3%A3o%20em%20at%C3%A9%203x.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener">Quero essa</a></div>
-    </div></article><article class="card" data-i="3">
-    <div class="media"><div class="slides"><div class="slide foto"><img src="brasil-i-1.webp" alt="Brasil 2026/2027 Camisa I" loading="lazy"></div><div class="slide foto"><img src="brasil-i-2.webp" alt="Brasil 2026/2027 Camisa I" loading="lazy"></div></div><span class="tag">Pronta entrega</span><span class="tag promo-tag">Promoção</span><button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots"><i class="on"></i><i class=""></i></div></div>
-    <div class="info">
-      <h3>Brasil Camisa I</h3>
-      <div class="meta"><span>2026/2027</span></div><div class="pick" role="group" aria-label="Escolha o tamanho"><button data-t="G" aria-pressed="true">G</button><button data-t="GG" aria-pressed="false">GG</button></div>
-      <p class="desc">Camisa amarela da Seleção, detalhes em verde.</p>
-      <div class="buy"><div class="prices promo">
-    <span class="promo-lbl">Promoção</span>
-    <s class="de">De R$&nbsp;170,00</s>
-    <div class="pv"><span class="price">por R$&nbsp;120,00</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
-    <div class="pc">ou <strong>R$&nbsp;130,00</strong> no cartão em até 3x de R$&nbsp;43,33</div>
-  </div>
-        <a class="zapbtn" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Tenho%20interesse%20na%20camisa%20Brasil%202026%2F2027%20Camisa%20I%20(promo%C3%A7%C3%A3o)%2C%20tamanho%20G%20(pronta%20entrega)%3A%20R%24%C2%A0120%2C00%20%C3%A0%20vista%20ou%20R%24%C2%A0130%2C00%20no%20cart%C3%A3o%20em%20at%C3%A9%203x.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener">Quero essa</a></div>
-    </div></article><article class="card" data-i="4">
-    <div class="media"><div class="slides"><div class="slide foto"><img src="brasil-ii-1.webp" alt="Brasil 2026/2027 Camisa II" loading="lazy"></div><div class="slide foto"><img src="brasil-ii-2.webp" alt="Brasil 2026/2027 Camisa II" loading="lazy"></div></div><span class="tag">Pronta entrega</span><span class="tag promo-tag">Promoção</span><button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots"><i class="on"></i><i class=""></i></div></div>
-    <div class="info">
-      <h3>Brasil Camisa II</h3>
-      <div class="meta"><span class="sz">Tam. GG</span><span>2026/2027</span></div>
-      <p class="desc">Camisa azul da Seleção com estampa em listras.</p>
-      <div class="buy"><div class="prices promo">
-    <span class="promo-lbl">Promoção</span>
-    <s class="de">De R$&nbsp;170,00</s>
-    <div class="pv"><span class="price">por R$&nbsp;120,00</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
-    <div class="pc">ou <strong>R$&nbsp;130,00</strong> no cartão em até 3x de R$&nbsp;43,33</div>
-  </div>
-        <a class="zapbtn" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Tenho%20interesse%20na%20camisa%20Brasil%202026%2F2027%20Camisa%20II%20(promo%C3%A7%C3%A3o)%2C%20tamanho%20GG%20(pronta%20entrega)%3A%20R%24%C2%A0120%2C00%20%C3%A0%20vista%20ou%20R%24%C2%A0130%2C00%20no%20cart%C3%A3o%20em%20at%C3%A9%203x.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener">Quero essa</a></div>
-    </div></article><article class="card" data-i="5">
-    <div class="media"><div class="slides"><div class="slide foto"><img src="flamengo-iii-1.webp" alt="Flamengo 2026/2027 Camisa III" loading="lazy"></div><div class="slide foto"><img src="flamengo-iii-2.webp" alt="Flamengo 2026/2027 Camisa III" loading="lazy"></div></div><span class="tag enc">Por encomenda</span><button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots"><i class="on"></i><i class=""></i></div></div>
-    <div class="info">
-      <h3>Flamengo Camisa III</h3>
-      <div class="meta"><span>2026/2027</span></div><div class="pick" role="group" aria-label="Escolha o tamanho"><button data-t="P" aria-pressed="true">P</button><button data-t="M" aria-pressed="false">M</button><button data-t="G" aria-pressed="false">G</button><button data-t="GG" aria-pressed="false">GG</button><button data-t="2XG" aria-pressed="false">2XG</button><button data-t="3XG" aria-pressed="false">3XG</button></div>
-      <p class="desc">Camisa III vermelha com estampa tonal.</p>
-      <div class="buy"><div class="prices">
-    
-    
-    <div class="pv"><span class="price">R$&nbsp;170,00</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
-    <div class="pc">ou <strong>R$&nbsp;180,00</strong> no cartão em até 3x de R$&nbsp;60,00</div>
-  </div>
-        <a class="zapbtn" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Tenho%20interesse%20na%20camisa%20Flamengo%202026%2F2027%20Camisa%20III%2C%20tamanho%20P%20(por%20encomenda)%3A%20R%24%C2%A0170%2C00%20%C3%A0%20vista%20ou%20R%24%C2%A0180%2C00%20no%20cart%C3%A3o%20em%20at%C3%A9%203x.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener">Quero essa</a></div>
-    </div></article><article class="card" data-i="6">
-    <div class="media"><div class="slides"><div class="slide foto"><img src="originals-preta-1.webp" alt="Flamengo 26/27 Originals 2 Trefoil" loading="lazy"></div><div class="slide foto"><img src="originals-preta-2.webp" alt="Flamengo 26/27 Originals 2 Trefoil" loading="lazy"></div></div><span class="tag enc">Por encomenda</span><button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots"><i class="on"></i><i class=""></i></div></div>
-    <div class="info">
-      <h3>Flamengo Originals 2 Trefoil</h3>
-      <div class="meta"><span>26/27</span></div><div class="pick" role="group" aria-label="Escolha o tamanho"><button data-t="P" aria-pressed="true">P</button><button data-t="M" aria-pressed="false">M</button><button data-t="G" aria-pressed="false">G</button><button data-t="GG" aria-pressed="false">GG</button><button data-t="2XG" aria-pressed="false">2XG</button><button data-t="3XG" aria-pressed="false">3XG</button></div>
-      <p class="desc">Preta com faixa vermelha no peito e três listras nos ombros.</p>
-      <div class="buy"><div class="prices">
-    
-    
-    <div class="pv"><span class="price">R$&nbsp;170,00</span><span class="how-pay">à vista · Pix ou dinheiro</span></div>
-    <div class="pc">ou <strong>R$&nbsp;180,00</strong> no cartão em até 3x de R$&nbsp;60,00</div>
-  </div>
-        <a class="zapbtn" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Tenho%20interesse%20na%20camisa%20Flamengo%2026%2F27%20Originals%202%20Trefoil%2C%20tamanho%20P%20(por%20encomenda)%3A%20R%24%C2%A0170%2C00%20%C3%A0%20vista%20ou%20R%24%C2%A0180%2C00%20no%20cart%C3%A3o%20em%20at%C3%A9%203x.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener">Quero essa</a></div>
-    </div></article></div>
+      <div class="grid" id="grid"></div>
     </div>
   </section>
 
@@ -298,19 +283,19 @@ footer{padding-bottom:96px}
       <h2>Como comprar</h2>
       <div class="steps">
         <div class="step">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
-          <h3>Escolha a camisa</h3>
-          <p>Veja pronta entrega ou encomenda, filtre por tamanho ou procure pelo seu time.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H6"/></svg>
+          <h3>Monte o carrinho</h3>
+          <p>Escolha o modelo, o tamanho e a quantidade. Na pronta entrega vale o que tem em estoque; na encomenda você escolhe quantas quiser.</p>
+        </div>
+        <div class="step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
+          <h3>Escolha como pagar</h3>
+          <p id="stepPay">Pix ou dinheiro à vista, ou cartão em até 3x. Com 3 camisas, o cupom de desconto entra sozinho.</p>
         </div>
         <div class="step">
           <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><path d="M4 20l1.5-4A8 8 0 1 1 8 18.5z"></path></svg>
-          <h3>Chame no WhatsApp</h3>
-          <p>O botão abre a conversa com o nome da camisa, o tamanho e o preço já escritos.</p>
-        </div>
-        <div class="step">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#d7192d" stroke-width="2"><path d="M20 7 9 18l-5-5"></path></svg>
-          <h3>Combine e receba</h3>
-          <p>Pagamento e entrega são combinados direto na conversa.</p>
+          <h3>Finalize no WhatsApp</h3>
+          <p>O pedido vai pronto para a conversa: camisas, tamanhos, quantidades, pagamento e total. A entrega é combinada por lá.</p>
         </div>
       </div>
     </div>
@@ -322,10 +307,45 @@ footer{padding-bottom:96px}
   Camisas de time • Atendimento pelo WhatsApp
 </footer>
 
-<a class="fab" id="fab" href="https://wa.me/5583987866117?text=Ol%C3%A1!%20Vim%20pelo%20seu%20site%20e%20queria%20ver%20as%20camisas%20dispon%C3%ADveis." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.6 3 15.6c0 2.5.8 4.9 2.1 6.9L3.6 28.4l6.1-1.6c1.9 1 4 1.6 6.3 1.6 7.2 0 13-5.6 13-12.6S23.2 3 16 3zm0 22.9c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.6.9.9-3.4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.7C5.4 9.9 10.1 5.3 16 5.3s10.6 4.6 10.6 10.3S21.9 25.9 16 25.9zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"></path></svg>
   <span>Chamar no WhatsApp</span>
 </a>
+
+<dialog class="drawer" id="cart" aria-labelledby="cartTitle">
+  <div class="dh">
+    <h2 id="cartTitle">Seu carrinho</h2>
+    <button class="x" id="cartClose" type="button" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="db">
+    <div class="cupom" id="cupomBox"></div>
+    <div class="vazio" id="cartEmpty">
+      Seu carrinho está vazio.<br>
+      <button class="cta" type="button" id="continuar">Ver as camisas</button>
+    </div>
+    <ul class="items" id="cartItems"></ul>
+    <fieldset class="pay" id="payBox">
+      <legend>Forma de pagamento</legend>
+      <label class="opt"><input type="radio" name="pg" value="pix"> Pix <small>à vista</small></label>
+      <label class="opt"><input type="radio" name="pg" value="dinheiro"> Dinheiro <small>à vista</small></label>
+      <label class="opt"><input type="radio" name="pg" value="cartao"> Cartão de crédito <small id="cartaoHint"></small></label>
+      <label class="field" id="parcWrap">Parcelas
+        <select id="parc"></select>
+      </label>
+    </fieldset>
+    <label class="field" id="nomeWrap">Seu nome <span>(opcional)</span>
+      <input id="nomeCli" autocomplete="name" placeholder="Para o pedido chegar identificado">
+    </label>
+  </div>
+  <div class="df" id="cartFoot">
+    <div class="sum" id="sum"></div>
+    <p class="note" id="sumNote"></p>
+    <a class="zapbtn" id="checkout" href="#" target="_blank" rel="noopener">Finalizar pedido no WhatsApp</a>
+    <button class="linkbtn" type="button" id="esvaziar">Esvaziar carrinho</button>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" hidden><span id="toastTxt"></span><button type="button" id="toastVer">Ver carrinho</button></div>
 
 <script>
 {
@@ -335,28 +355,43 @@ footer{padding-bottom:96px}
 const LOJA = "Victor Silva";
 const WHATSAPP = "5583987866117"; // DDI + DDD + número, só números
 
-// tipo: "pronta" ou "encomenda" • vendida: true esconde o botão
-// fotos: ["img/arquivo-frente.jpg","img/arquivo-costas.jpg"] — se vazio, usa o desenho
 // PREÇO PADRÃO de todas as camisas (para mudar uma só, coloque vista/cartao/de nela)
 const VISTA = 170;     // Pix ou dinheiro
 const CARTAO = 180;    // cartão
 const PARCELAS = 3;    // em até 3x
+
+// CUPOM — aplicado sozinho quando o carrinho chega em "minPecas" camisas.
+// Vale só no pagamento à vista (Pix ou dinheiro).
+const CUPOM = {codigo: "FLAMENGO10", pct: 10, minPecas: 3};
+
+// Limite de quantidade por tamanho nas camisas POR ENCOMENDA
+const MAX_ENCOMENDA = 20;
+
+// tipo: "pronta" ou "encomenda" • vendida: true marca como esgotada
+// PRONTA ENTREGA: estoque por tamanho → estoque:{G:2, GG:1}
+//   (tamanho com 0 aparece riscado; tudo 0 = camisa esgotada)
+// POR ENCOMENDA: tamanhos:["P","M",...] — o cliente escolhe a quantidade
 // promocao: {de: 170, vista: 120, cartao: 130}
 const CAMISAS = [
   // ---------------- PRONTA ENTREGA ----------------
-  {time:"Flamengo",modelo:"Camisa I",ano:"",tamanhos:["G","GG","2XG","3XG"],tipo:"pronta",estado:"Nova, com etiqueta",
+  {time:"Flamengo",modelo:"Camisa I",ano:"",tipo:"pronta",estado:"Nova, com etiqueta",
+   estoque:{G:1, GG:1, "2XG":1, "3XG":1},
    desc:"Camisa I rubro-negra, gola polo, escudo e marca bordados.",
    fotos:["flamengo-01-01.webp","flamengo-01-02.webp","flamengo-01-03.webp","flamengo-01-04.webp"]},
-  {time:"Flamengo",modelo:"Treino Bege",ano:"2026/2027",tamanhos:["2XG"],tipo:"pronta",
+  {time:"Flamengo",modelo:"Treino Bege",ano:"2026/2027",tipo:"pronta",
+   estoque:{"2XG":1},
    desc:"Camisa de treino bege com mangas marrons e detalhes dourados.",
    fotos:["treino-bege-1.webp","treino-bege-2.webp"]},
-  {time:"Flamengo",modelo:"Treino Marrom",ano:"2026/2027",tamanhos:["2XG"],tipo:"pronta",
+  {time:"Flamengo",modelo:"Treino Marrom",ano:"2026/2027",tipo:"pronta",
+   estoque:{"2XG":1},
    desc:"Camisa de treino marrom com mangas bege e detalhes dourados.",
    fotos:["treino-marrom-1.webp","treino-marrom-2.webp"]},
-  {time:"Brasil",modelo:"Camisa I",ano:"2026/2027",tamanhos:["G","GG"],tipo:"pronta",promocao:{de:170,vista:120,cartao:130},
+  {time:"Brasil",modelo:"Camisa I",ano:"2026/2027",tipo:"pronta",promocao:{de:170,vista:120,cartao:130},
+   estoque:{G:1, GG:1},
    desc:"Camisa amarela da Seleção, detalhes em verde.",
    fotos:["brasil-i-1.webp","brasil-i-2.webp"]},
-  {time:"Brasil",modelo:"Camisa II",ano:"2026/2027",tamanhos:["GG"],tipo:"pronta",promocao:{de:170,vista:120,cartao:130},
+  {time:"Brasil",modelo:"Camisa II",ano:"2026/2027",tipo:"pronta",promocao:{de:170,vista:120,cartao:130},
+   estoque:{GG:1},
    desc:"Camisa azul da Seleção com estampa em listras.",
    fotos:["brasil-ii-1.webp","brasil-ii-2.webp"]},
   // ---------------- POR ENCOMENDA ----------------
@@ -370,20 +405,24 @@ const CAMISAS = [
 // =====================================================================
 
 const $ = s => document.querySelector(s);
-CAMISAS.forEach(c => { c.tamanhos = c.tamanhos || [c.tamanho]; });
+CAMISAS.forEach(c => { c.tamanhos = c.tamanhos || (c.estoque ? Object.keys(c.estoque) : [c.tamanho]); });
 const brl = v => v == null ? "" : v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const nome = c => [c.time, c.ano, c.modelo].filter(Boolean).join(" ");
 const zap = txt => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
+const estoque = (c, t) => c.vendida ? 0 : c.tipo === "encomenda" ? MAX_ENCOMENDA : (c.estoque ? (c.estoque[t] ?? 0) : 1);
+const esgotada = c => c.vendida || c.tamanhos.every(t => estoque(c, t) <= 0);
+const plural = (n, s, p) => `${n} ${n === 1 ? s : p}`;
 let uid = 0;
 
 const SHIRT = "M60 22 L86 12 Q100 22 114 12 L140 22 L186 52 L168 92 L148 82 L148 206 L52 206 L52 82 L32 92 L14 52 Z";
 function camisaSVG(d, costas, numero){
+  d = d || {base:"#333", detalhe:"#d7192d"};
   const id = "c" + (uid++);
   let faixas = "";
   if (d.padrao === "h") for (let y = 0; y < 220; y += 28) faixas += `<rect x="0" y="${y}" width="200" height="14" fill="${d.listra}"/>`;
   if (d.padrao === "v") for (let x = 4; x < 200; x += 24) faixas += `<rect x="${x}" y="0" width="12" height="220" fill="${d.listra}"/>`;
   const gola = costas ? "M86 12 Q100 18 114 12" : "M86 12 Q100 32 114 12";
-  const num = costas ? `<text x="100" y="150" text-anchor="middle" font-family="Barlow Condensed,Impact,sans-serif" font-weight="800" font-size="78" fill="${d.detalhe}" stroke="${d.base}" stroke-width="2" paint-order="stroke">${numero}</text>` : "";
+  const num = costas && numero ? `<text x="100" y="150" text-anchor="middle" font-family="Barlow Condensed,Impact,sans-serif" font-weight="800" font-size="78" fill="${d.detalhe}" stroke="${d.base}" stroke-width="2" paint-order="stroke">${numero}</text>` : "";
   return `<svg viewBox="0 0 200 220" role="img" aria-label="Desenho da camisa ${costas ? "de costas" : "de frente"}">
     <defs><clipPath id="${id}"><path d="${SHIRT}"/></clipPath>
     <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient></defs>
@@ -401,22 +440,47 @@ $("#brand").innerHTML = LOJA.replace(/(\S+)$/, " <b>$1</b>");
 $("#brandFoot").textContent = LOJA;
 document.title = `${LOJA} | Camisas`;
 $("#zapTop").href = $("#fab").href = zap(`Olá! Vim pelo seu site e queria ver as camisas disponíveis.`);
+$("#cupomStrip").innerHTML = `<b>${CUPOM.codigo}</b><span>Leve ${CUPOM.minPecas} camisas e ganhe ${CUPOM.pct}% OFF no Pix ou dinheiro. O desconto entra sozinho no carrinho.</span>`;
+$("#stepPay").textContent = `Pix ou dinheiro à vista, ou cartão em até ${PARCELAS}x. Com ${CUPOM.minPecas} camisas no carrinho, o cupom ${CUPOM.codigo} (${CUPOM.pct}% OFF à vista) entra sozinho.`;
 
-const disp = CAMISAS.filter(c => !c.vendida);
-$("#fTotal").textContent = disp.length;
-$("#fPronta").textContent = disp.filter(c => c.tipo === "pronta").length;
-$("#fEnc").textContent = disp.filter(c => c.tipo === "encomenda").length;
-$("#cTodas").textContent = disp.length;
-$("#cPronta").textContent = disp.filter(c => c.tipo === "pronta").length;
-$("#cEnc").textContent = disp.filter(c => c.tipo === "encomenda").length;
+const disp = CAMISAS.filter(c => !esgotada(c));
+$("#fTotal").textContent = $("#cTodas").textContent = disp.length;
+$("#fPronta").textContent = $("#cPronta").textContent = disp.filter(c => c.tipo === "pronta").length;
+$("#fEnc").textContent = $("#cEnc").textContent = disp.filter(c => c.tipo === "encomenda").length;
 
-const TAM = ["Todos", ...["PP","P","M","G","GG","XG","2XG","3XG"].filter(t => CAMISAS.some(c => c.tamanhos.includes(t)))];
+const TAM = ["Todos", ...["PP","P","M","G","GG","XG","2XG","3XG"].filter(t => CAMISAS.some(c => c.tamanhos.includes(t) && estoque(c, t) > 0))];
 $("#sizes").innerHTML = TAM.map((t, i) => `<button data-size="${t}" aria-pressed="${i === 0}">${t}</button>`).join("");
 
 let aba = "todas", tam = "Todos", busca = "";
 
 const precos = c => c.promocao ? {...c.promocao, promo: true} : {vista: c.vista ?? VISTA, cartao: c.cartao ?? CARTAO, de: c.de, promo: false};
 const zapMsg = (c, t) => { const p = precos(c); return zap(`Olá! Tenho interesse na camisa ${nome(c)}${p.promo ? " (promoção)" : ""}, tamanho ${t} (${c.tipo === "pronta" ? "pronta entrega" : "por encomenda"}): ${brl(p.vista)} à vista ou ${brl(p.cartao)} no cartão em até ${PARCELAS}x. Ainda está disponível?`); };
+
+// ---------------- carrinho: estado ----------------
+const LS = "camisas-carrinho-v1";
+let cart = [];                       // [{id, t, q}]
+let pay = {metodo: "pix", parc: 1};
+try { const s = JSON.parse(localStorage.getItem(LS) || "null"); if (s) { cart = s.cart || []; Object.assign(pay, s.pay || {}); } } catch (e) {}
+const byId = id => CAMISAS.find(c => nome(c) === id);
+cart = cart.filter(it => {
+  const c = byId(it.id); if (!c || !c.tamanhos.includes(it.t)) return false;
+  it.q = Math.min(+it.q || 0, estoque(c, it.t)); return it.q > 0;
+});
+if (!["pix","dinheiro","cartao"].includes(pay.metodo)) pay.metodo = "pix";
+pay.parc = Math.min(Math.max(1, +pay.parc || 1), PARCELAS);
+const save = () => { try { localStorage.setItem(LS, JSON.stringify({cart, pay})); } catch (e) {} };
+const inCart = (c, t) => (cart.find(it => it.id === nome(c) && it.t === t) || {}).q || 0;
+const pecas = () => cart.reduce((s, it) => s + it.q, 0);
+
+function totais(){
+  let vista = 0, cartao = 0;
+  cart.forEach(it => { const p = precos(byId(it.id)); vista += p.vista * it.q; cartao += p.cartao * it.q; });
+  const n = pecas(), cupomOk = n >= CUPOM.minPecas, cartaoSel = pay.metodo === "cartao";
+  const desconto = cupomOk ? Math.round(vista * CUPOM.pct) / 100 : 0;
+  return {vista, cartao, n, cupomOk, desconto, cartaoSel, total: cartaoSel ? cartao : vista - desconto};
+}
+
+// ---------------- catálogo ----------------
 function precoHTML(c){
   const p = precos(c);
   return `<div class="prices${p.promo ? " promo" : ""}">
@@ -426,42 +490,150 @@ function precoHTML(c){
     <div class="pc">ou <strong>${brl(p.cartao)}</strong> no cartão em até ${PARCELAS}x de ${brl(p.cartao / PARCELAS)}</div>
   </div>`;
 }
+const CART_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H6"/></svg>`;
 function card(c){
+  const out = esgotada(c);
   const slides = c.fotos && c.fotos.length
-    ? c.fotos.map(f => `<div class="slide foto"><img src="${f}" alt="${nome(c)}" loading="lazy"></div>`)
+    ? c.fotos.map(f => `<div class="slide foto"><img src="${f}" alt="${nome(c)}" loading="lazy" onerror="this.parentElement.classList.add('semfoto')"></div>`)
     : [camisaSVG(c.desenho, 0), camisaSVG(c.desenho, 1, c.numero)].map(s => `<div class="slide">${s}</div>`);
-  const tag = c.vendida ? `<span class="tag vend">Vendida</span>`
+  const tag = out ? `<span class="tag vend">Esgotada</span>`
     : c.tipo === "pronta" ? `<span class="tag">Pronta entrega</span>` : `<span class="tag enc">Por encomenda</span>`;
-  const promoTag = c.promocao && !c.vendida ? `<span class="tag promo-tag">Promoção</span>` : "";
-  const tz = c.tamanhos.includes(tam) ? tam : c.tamanhos[0];
-  const msg = zapMsg(c, tz);
+  const promoTag = c.promocao && !out ? `<span class="tag promo-tag">Promoção</span>` : "";
+  const comEstoque = c.tamanhos.filter(t => estoque(c, t) > 0);
+  const tz = comEstoque.includes(tam) ? tam : (comEstoque[0] || c.tamanhos[0]);
   const escolha = c.tamanhos.length > 1
-    ? `<div class="pick" role="group" aria-label="Escolha o tamanho">${c.tamanhos.map(t => `<button data-t="${t}" aria-pressed="${t === tz}">${t}</button>`).join("")}</div>` : "";
+    ? `<div class="pick" role="group" aria-label="Escolha o tamanho">${c.tamanhos.map(t => `<button data-t="${t}" aria-pressed="${t === tz}"${estoque(c, t) > 0 ? "" : " disabled"}>${t}</button>`).join("")}</div>` : "";
   const nav = slides.length > 1
     ? `<button class="arrow prev" data-dir="-1" aria-label="Foto anterior">‹</button><button class="arrow next" data-dir="1" aria-label="Próxima foto">›</button><div class="dots">${slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div>`
     : "";
-  return `<article class="card${c.vendida ? " sold" : ""}" data-i="${CAMISAS.indexOf(c)}">
+  return `<article class="card${out ? " sold" : ""}" data-i="${CAMISAS.indexOf(c)}" data-t="${tz}" data-q="1">
     <div class="media"><div class="slides">${slides.join("")}</div>${tag}${promoTag}${nav}</div>
     <div class="info">
       <h3>${c.time} ${c.modelo}</h3>
       <div class="meta">${c.tamanhos.length > 1 ? "" : `<span class="sz">Tam. ${c.tamanhos[0]}</span>`}${c.ano ? `<span>${c.ano}</span>` : ""}${c.estado ? `<span>${c.estado}</span>` : ""}</div>${escolha}
       <p class="desc">${c.desc}</p>
       <div class="buy">${precoHTML(c)}
-        <a class="zapbtn" href="${c.vendida ? "#" : msg}" target="_blank" rel="noopener" ${c.vendida ? 'aria-disabled="true"' : ""}>${c.vendida ? "Já foi" : "Quero essa"}</a></div>
+        <div class="addrow">
+          <div class="qty" role="group" aria-label="Quantidade"><button type="button" data-q="-1" aria-label="Diminuir">−</button><output aria-live="polite">1</output><button type="button" data-q="1" aria-label="Aumentar">+</button></div>
+          <button type="button" class="addbtn">${CART_ICON}<span>Adicionar</span></button>
+        </div>
+        <p class="stock"></p>
+        ${out ? "" : `<a class="zaplink" href="#" target="_blank" rel="noopener">ou pedir só essa pelo WhatsApp</a>`}
+      </div>
     </div></article>`;
 }
+
+function syncCard(el){
+  const c = CAMISAS[el.dataset.i], t = el.dataset.t, est = estoque(c, t), noCart = inCart(c, t);
+  const max = Math.max(0, est - noCart);
+  const q = Math.min(Math.max(1, +el.dataset.q || 1), Math.max(1, max));
+  el.dataset.q = q;
+  el.querySelector(".qty output").textContent = q;
+  el.querySelector('[data-q="-1"]').disabled = q <= 1 || max <= 0;
+  el.querySelector('[data-q="1"]').disabled = q >= max;
+  const add = el.querySelector(".addbtn");
+  add.disabled = max <= 0;
+  add.querySelector("span").textContent = esgotada(c) ? "Esgotada" : max > 0 ? "Adicionar" : noCart ? "Já no carrinho" : "Sem estoque";
+  el.querySelector(".stock").textContent = esgotada(c) ? "Sem estoque no momento."
+    : c.tipo === "encomenda" ? `Por encomenda: escolha quantas quiser.${noCart ? ` ${noCart} no carrinho (${t}).` : ""}`
+    : est > 0 ? `${plural(est, "disponível", "disponíveis")} no ${t}.${noCart ? ` ${noCart} no seu carrinho.` : ""}`
+    : `Sem estoque no ${t}.`;
+  const z = el.querySelector(".zaplink"); if (z) z.href = zapMsg(c, t);
+}
+const syncAll = () => document.querySelectorAll("#grid .card").forEach(syncCard);
 
 function render(){
   const q = busca.trim().toLowerCase();
   const lista = CAMISAS
     .filter(c => aba === "todas" || c.tipo === aba)
-    .filter(c => tam === "Todos" || c.tamanhos.includes(tam))
+    .filter(c => tam === "Todos" || (c.tamanhos.includes(tam) && estoque(c, tam) > 0))
     .filter(c => !q || nome(c).toLowerCase().includes(q))
-    .sort((a, b) => (a.vendida ? 1 : 0) - (b.vendida ? 1 : 0));
+    .sort((a, b) => (esgotada(a) ? 1 : 0) - (esgotada(b) ? 1 : 0));
   $("#grid").innerHTML = lista.length ? lista.map(card).join("")
     : `<div class="empty">Nenhuma camisa com esse filtro agora.<br><button class="cta" id="limpar">Ver todas</button></div>`;
+  syncAll();
 }
 
+// ---------------- carrinho: tela ----------------
+const METODO = {pix: "Pix", dinheiro: "Dinheiro", cartao: "Cartão de crédito"};
+function renderCart(){
+  const T = totais(), vazio = !cart.length;
+  $("#cartCount").textContent = T.n; $("#cartCount").hidden = !T.n;
+  $("#cartBtn").setAttribute("aria-label", `Abrir carrinho (${plural(T.n, "peça", "peças")})`);
+
+  const falta = CUPOM.minPecas - T.n, pct = Math.min(T.n / CUPOM.minPecas, 1) * 100;
+  const cb = $("#cupomBox");
+  cb.classList.toggle("ok", T.cupomOk);
+  cb.innerHTML = (T.cupomOk
+    ? `<strong>Cupom ${CUPOM.codigo} aplicado!</strong> ${CUPOM.pct}% OFF pagando à vista (Pix ou dinheiro).`
+    : `Faltam <strong>${plural(falta, "camisa", "camisas")}</strong> para liberar o cupom <strong>${CUPOM.codigo}</strong>: ${CUPOM.pct}% OFF à vista.`)
+    + `<div class="bar"><i style="width:${pct}%"></i></div>`;
+
+  $("#cartEmpty").hidden = !vazio;
+  $("#payBox").hidden = $("#nomeWrap").hidden = $("#cartFoot").hidden = vazio;
+
+  $("#cartItems").innerHTML = cart.map((it, k) => {
+    const c = byId(it.id), p = precos(c), unit = T.cartaoSel ? p.cartao : p.vista;
+    const img = c.fotos && c.fotos[0] ? `<img src="${c.fotos[0]}" alt="">` : `<div style="width:60px;height:75px;border-radius:10px;background:#222"></div>`;
+    return `<li class="ci" data-k="${k}">${img}
+      <div><b>${c.time} ${c.modelo}</b><small>Tam. ${it.t} · ${c.tipo === "pronta" ? "Pronta entrega" : "Por encomenda"}${p.promo ? " · Promoção" : ""}</small>
+        <span class="lp">${brl(unit * it.q)}</span>${it.q > 1 ? ` <small style="display:inline">(${brl(unit)} cada)</small>` : ""}</div>
+      <div class="side">
+        <div class="qty" role="group" aria-label="Quantidade"><button type="button" data-cq="-1" aria-label="Diminuir">−</button><output>${it.q}</output><button type="button" data-cq="1" aria-label="Aumentar"${it.q >= estoque(c, it.t) ? " disabled" : ""}>+</button></div>
+        <button type="button" class="rm" data-rm>Remover</button>
+      </div></li>`;
+  }).join("");
+
+  document.querySelectorAll('[name="pg"]').forEach(r => r.checked = r.value === pay.metodo);
+  $("#cartaoHint").textContent = `até ${PARCELAS}x`;
+  $("#parcWrap").hidden = !T.cartaoSel;
+  $("#parc").innerHTML = Array.from({length: PARCELAS}, (_, i) => i + 1)
+    .map(n => `<option value="${n}"${n === pay.parc ? " selected" : ""}>${n}x de ${brl(T.cartao / n)}${n === 1 ? " (à vista no crédito)" : ""}</option>`).join("");
+
+  let sum = `<div><span>Subtotal (${plural(T.n, "peça", "peças")})</span><span>${brl(T.cartaoSel ? T.cartao : T.vista)}</span></div>`;
+  if (!T.cartaoSel && T.cupomOk) sum += `<div class="off"><span>Cupom ${CUPOM.codigo} (−${CUPOM.pct}%)</span><span>−${brl(T.desconto)}</span></div>`;
+  sum += `<div class="tot"><span>Total</span><span>${brl(T.total)}</span></div>`;
+  if (T.cartaoSel) sum += `<div><span>${METODO.cartao}</span><span>${pay.parc}x de ${brl(T.cartao / pay.parc)}</span></div>`;
+  else sum += `<div><span>${METODO[pay.metodo]}</span><span>à vista</span></div>`;
+  $("#sum").innerHTML = sum;
+
+  const aVistaComCupom = T.vista - Math.round(T.vista * CUPOM.pct) / 100;
+  $("#sumNote").textContent = T.cartaoSel
+    ? (T.cupomOk ? `O cupom ${CUPOM.codigo} vale só no Pix ou dinheiro: à vista sairia ${brl(aVistaComCupom)}.` : `No Pix ou dinheiro sai ${brl(T.vista)}.`)
+    : (T.cupomOk ? `Você economiza ${brl(T.desconto)} com o cupom.` : `Com mais ${plural(falta, "camisa", "camisas")}, ganha ${CUPOM.pct}% OFF à vista.`);
+
+  $("#checkout").href = vazio ? "#" : pedidoMsg();
+}
+
+function pedidoMsg(){
+  const T = totais(), cs = T.cartaoSel;
+  const linhas = cart.map((it, i) => {
+    const c = byId(it.id), p = precos(c), unit = cs ? p.cartao : p.vista;
+    return `${i + 1}. ${nome(c)}${p.promo ? " (promoção)" : ""} | tam. ${it.t} | ${it.q} un. | ${c.tipo === "pronta" ? "pronta entrega" : "por encomenda"} | ${brl(unit * it.q)}`;
+  });
+  let s = `Olá! Quero fazer este pedido pelo site:\n\n${linhas.join("\n")}\n\nPeças: ${T.n}\nPagamento: ${METODO[pay.metodo]}`;
+  s += cs ? ` em ${pay.parc}x de ${brl(T.cartao / pay.parc)}` : " (à vista)";
+  s += `\nSubtotal: ${brl(cs ? T.cartao : T.vista)}`;
+  if (!cs && T.cupomOk) s += `\nCupom ${CUPOM.codigo} (${CUPOM.pct}% OFF à vista): -${brl(T.desconto)}`;
+  s += `\n*Total: ${brl(T.total)}*`;
+  const nm = $("#nomeCli").value.trim();
+  if (nm) s += `\n\nNome: ${nm}`;
+  s += `\n\nPode confirmar a disponibilidade?`;
+  return zap(s);
+}
+
+function changed(){ save(); renderCart(); syncAll(); }
+
+let toastT;
+function toast(txt){
+  $("#toastTxt").textContent = txt; $("#toast").hidden = false;
+  clearTimeout(toastT); toastT = setTimeout(() => $("#toast").hidden = true, 4500);
+}
+const dlg = $("#cart");
+const abrir = () => { $("#toast").hidden = true; renderCart(); if (!dlg.open) dlg.showModal(); };
+const fechar = () => dlg.close();
+
+// ---------------- eventos ----------------
 $("#tabs").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   aba = b.dataset.tab;
@@ -481,11 +653,25 @@ $("#grid").addEventListener("click", e => {
     document.querySelectorAll("#tabs button,#sizes button").forEach(x => x.setAttribute("aria-pressed", x.dataset.tab === "todas" || x.dataset.size === "Todos"));
     render(); return;
   }
+  const el = e.target.closest(".card");
   const pk = e.target.closest(".pick button");
   if (pk) {
-    const cardEl = pk.closest(".card"), c = CAMISAS[cardEl.dataset.i];
-    cardEl.querySelectorAll(".pick button").forEach(x => x.setAttribute("aria-pressed", x === pk));
-    cardEl.querySelector(".zapbtn").href = zapMsg(c, pk.dataset.t);
+    el.querySelectorAll(".pick button").forEach(x => x.setAttribute("aria-pressed", x === pk));
+    el.dataset.t = pk.dataset.t; el.dataset.q = 1; syncCard(el); return;
+  }
+  const qb = e.target.closest(".qty button");
+  if (qb) { el.dataset.q = (+el.dataset.q || 1) + Number(qb.dataset.q); syncCard(el); return; }
+  const ad = e.target.closest(".addbtn");
+  if (ad) {
+    const c = CAMISAS[el.dataset.i], t = el.dataset.t;
+    const max = estoque(c, t) - inCart(c, t); if (max <= 0) return;
+    const q = Math.min(+el.dataset.q || 1, max), antes = pecas() >= CUPOM.minPecas;
+    const it = cart.find(x => x.id === nome(c) && x.t === t);
+    if (it) it.q += q; else cart.push({id: nome(c), t, q});
+    el.dataset.q = 1; changed();
+    toast(!antes && pecas() >= CUPOM.minPecas
+      ? `Cupom ${CUPOM.codigo} liberado! ${CUPOM.pct}% OFF no Pix ou dinheiro.`
+      : `${q > 1 ? q + "× " : ""}${c.time} ${c.modelo} (${t}) no carrinho.`);
     return;
   }
   const a = e.target.closest(".arrow"); if (!a) return;
@@ -498,9 +684,34 @@ $("#grid").addEventListener("scroll", e => {
   s.parentElement.querySelectorAll(".dots i").forEach((d, k) => d.classList.toggle("on", k === i));
 }, true);
 
+$("#cartBtn").addEventListener("click", abrir);
+$("#toastVer").addEventListener("click", abrir);
+$("#cartClose").addEventListener("click", fechar);
+$("#continuar").addEventListener("click", () => { fechar(); location.hash = "#camisas"; });
+dlg.addEventListener("click", e => {
+  if (e.target === dlg) { fechar(); return; }
+  const li = e.target.closest(".ci");
+  if (e.target.closest("[data-rm]")) { cart.splice(+li.dataset.k, 1); changed(); return; }
+  const qb = e.target.closest("[data-cq]");
+  if (qb) {
+    const it = cart[+li.dataset.k], c = byId(it.id);
+    it.q = Math.min(it.q + Number(qb.dataset.cq), estoque(c, it.t));
+    if (it.q <= 0) cart.splice(+li.dataset.k, 1);
+    changed();
+  }
+});
+$("#esvaziar").addEventListener("click", () => { cart = []; changed(); });
+$("#payBox").addEventListener("change", e => {
+  if (e.target.name === "pg") pay.metodo = e.target.value;
+  if (e.target.id === "parc") pay.parc = +e.target.value;
+  save(); renderCart();
+});
+$("#nomeCli").addEventListener("input", () => { if (cart.length) $("#checkout").href = pedidoMsg(); });
+$("#checkout").addEventListener("click", e => { if (!cart.length) e.preventDefault(); });
+
 render();
+renderCart();
 }
 </script>
-
 
 </body></html>
